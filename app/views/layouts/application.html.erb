@@ -4,11 +4,68 @@
   <title>KHTS</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script>
+	$(document).ready(function()
+	{
+	  $('.dropdown-menu').find('form').click(function (e) {
+			e.stopPropagation();
+			});
+	  });
+  </script>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-inverse" >
+      <div class="navbar-inner" >
+        <div class="container" style = "padding-left: 120px;padding-right: 120px;" >
+          <a class="brand" href="/" >KOORDİNATÖR VE HOCA TAKİP SİSTEMİ</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Ana Sayfa</a></li>
+            </ul>
+            <ul class="nav pull-right">
+			  <li class="divider-vertical"></li>
+			  <li class="dropdown">
+				  <% if current_user %>
+					<li><%= link_to current_user.username,"" %> </li>
+					<li><%= link_to "Çıkış",logout_url %></li>
+				  <% else %>
+					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Giriş Yap <strong class="caret"></strong></a>
+					<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+					<%= form_tag sessions_path,:class=>"form-horizontal" do %>
+						<% if flash[:error] %>
+							<div class="alert alert-error">
+								<%= flash[:error] %>
+							</div>
+						<% end %>
+						<label >Kullanıcı Adınız</label>
+							<%= text_field_tag :username, params[:username] , :style =>"margin-bottom: 15px;widht:30px;" %>
+	                    <label >Parola</label>
+							<%= password_field_tag :password , "", :style =>"margin-bottom: 15px;widht:30px;" %>
+						<%= submit_tag "Giriş Yap",:class =>"btn btn-primary", :style =>"clear: left; width: 100%; height: 32px; font-size: 13px;" %>
+					<% end %>
+				 <% end %>
+             </div>
+            </li>
+          </ul>
+		</div>
+	  </div>
+	</div>
+ </div>
 
 <%= yield %>
+
+ <div class="navbar-fixed-bottom">
+	<div class="navbar navbar-inverse" style = "margin-bottom: 10px;;height:40px;">
+      <div class="navbar-inner">
+        <div class="container">
+           <ul class="nav pull-right">
+            <li style = "position:absolute;right:2in;width:4in;"><a href="#">Copyright © 2013 UZEM </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>    
 
 </body>
 </html>

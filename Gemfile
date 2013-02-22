@@ -6,6 +6,7 @@ gem 'execjs'
 gem 'twitter-bootstrap-rails'
 gem  "mysql2", ">= 0.3.11"
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'cancan'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
