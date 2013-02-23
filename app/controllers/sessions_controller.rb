@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 	  when "manager"
 		#redirect_to deneme_index_path
 	  when "user"
-		#redirect_to deneme_index_path
+		redirect_to ("/upload")
 	  end
 	else
 	  flash[:error] = "Kullanici adin ve/veya parolan hatali"

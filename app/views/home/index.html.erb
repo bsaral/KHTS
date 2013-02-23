@@ -4,9 +4,13 @@
      <p  style="margin-left:250px;"> Buralara birşeyler yazılabilir.</p>
    </div>
   
-   
-   <%= button_to "DEVAM ET", "/login", :class => 'btn btn-large btn-primary', \
-		style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
+   <% unless session[:user_id] == nil %>
+		<%= button_to "DEVAM ET", "/upload", :class => 'btn btn-large btn-primary', \
+			style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
+   <% else %>
+		<%= button_to "DEVAM ET", "/login", :class => 'btn btn-large btn-primary', \
+			style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
+   <% end %>	 
 
 </div>
 

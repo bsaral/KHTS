@@ -7,6 +7,8 @@ gem 'twitter-bootstrap-rails'
 gem  "mysql2", ">= 0.3.11"
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'cancan'
+gem "paperclip", "~> 3.0"
+gem "rmagick" , '~> 2.13.2'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
