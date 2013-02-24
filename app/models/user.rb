@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :username, :role
   has_secure_password
+  has_many :uploads
   
   ROLES = %w[manager user]
 

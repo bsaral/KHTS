@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 	  session[:user_id] = user.id
 	  case user.role
 	  when "manager"
-		#redirect_to deneme_index_path
+		redirect_to ("/upload_show")
 	  when "user"
 		redirect_to ("/upload")
 	  end

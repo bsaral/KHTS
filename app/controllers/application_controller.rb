@@ -7,4 +7,14 @@ class ApplicationController < ActionController::Base
   def current_user
 	  session[:user_id] ? @current_user ||= User.find(session[:user_id]) : nil
   end
+  
+  private
+
+  def require_login
+    unless current_user
+      redirect_to login_url
+    end
+  end
+  
+  
 end

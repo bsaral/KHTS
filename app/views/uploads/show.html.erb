@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class = "container">
+  <div class = "hero-unit" style="margin-top:50px;margin-left:2.5in;width:3in;background-color:#fff" >
+	<h3> Yükleme Tamamlandı </h3>
+	<div style ="margin-top:-70px;margin-left:3in"><%= image_tag("2.png")%></div>
+  </div>
+  <%= link_to 'Listeyi Göster', "/user_show",:class => 'btn btn-large btn-primary',:style =>"color:#fff;width:150px;margin-left:2in" %> 
+  <%= link_to 'Yeni Ekle', new_upload_path,:class => 'btn btn-large btn-success',:style =>"color:#fff;width:150px;margin-left:2in;" %>
+</div>
 
-<p>
-  <b>Attach:</b>
-  <%= @upload.attach_file_name %>
-</p>
 
 
-<%= link_to 'Edit', edit_upload_path(@upload) %> |
-<%= link_to 'Back', uploads_path %>

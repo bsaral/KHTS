@@ -18,12 +18,11 @@
     <td><%= upload.attach_content_type %></td>
     <td><%= upload.attach_file_size %>MB</td>
     <td><%= upload.attach_updated_at.try( :strftime, "%d/%m/%Y ") %></td>
-    <td><%= link_to 'Sil', upload, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn  btn-danger',:style=>"color:#fff;width:30px;" %></td>
+    <td><%= link_to 'Sil',upload, :method => :delete, data: { confirm: 'Are you sure?' },:class => 'btn  btn-danger',:style=>"color:#fff;width:30px;" %></td>
     <td><%= link_to 'İndir', {:action => :download, :id => upload.id},:class => 'btn  btn-info',:style=>"color:#fff;width:30px;" %></td>
   </tr>
 <% end %>
+
 </table>
-
-
-
-
+</div>
+<%= link_to 'Yeni Ekle', new_upload_path,:class => 'btn btn-large btn-success',:style =>"color:#fff;width:150px;margin-left:6in;" %>
