@@ -35,7 +35,8 @@ class UploadsController < ApplicationController
 
   
   def create
-    @upload = Upload.new(params[:upload])
+   
+    @upload = Upload.create(params[:upload])
 
     respond_to do |format|
       if @upload.save
@@ -72,5 +73,15 @@ class UploadsController < ApplicationController
       format.html { redirect_to uploads_url }
       format.json { head :no_content }
     end
+  end
+  
+   def download
+    upload = Upload.find(params[:id])
+    
+    send_file  upload.attach.path,
+		:filename => upload.attach_file_name,
+        :type => upload.attach_content_type,
+		:disposition => 'attachment'
+    flash[:notice] = "Your file has been downloaded"
   end
 end

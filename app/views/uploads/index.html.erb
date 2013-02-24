@@ -10,10 +10,11 @@
 
 <% @uploads.each do |upload| %>
   <tr>
-    <td><%= upload.attach %></td>
+    <td><%= upload.attach_file_name %></td>
     <td><%= link_to 'Show', upload %></td>
     <td><%= link_to 'Edit', edit_upload_path(upload) %></td>
     <td><%= link_to 'Destroy', upload, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Download', :action => :download, :id => upload.id %></td>
   </tr>
 <% end %>
 </table>

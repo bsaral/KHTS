@@ -8,5 +8,6 @@ KHTS::Application.routes.draw do
   
   resources :uploads
   match "/upload" => "uploads#new"
+  match 'download/:id' =>  'uploads#download', :as => :download
   
 end

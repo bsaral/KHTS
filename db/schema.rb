@@ -14,8 +14,10 @@
 ActiveRecord::Schema.define(:version => 20130223010207) do
 
   create_table "uploads", :force => true do |t|
-    t.string   "attach_file_name",    :limit => 4
+    t.string   "attach_file_name"
     t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
   end
