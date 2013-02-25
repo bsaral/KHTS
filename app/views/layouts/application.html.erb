@@ -25,6 +25,8 @@
               <% if current_user %>
 				<% if current_user.role == "user" %>
 					<li ><a href="/user_show">Tablo</a></li>
+				<% else %>
+					<li ><a href="/upload_show">Tablo</a></li>
 				<% end %>
 			  <% end %>
             </ul>

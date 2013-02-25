@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 	  end
 	else
 	  flash[:error] = "Kullanici adin ve/veya parolan hatali"
-	  redirect_to root_url
+	  redirect_to ("/login")
 
 	end
   end

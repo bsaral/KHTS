@@ -3,6 +3,7 @@ class UploadsController < ApplicationController
  before_filter :require_login
  before_filter :manager,:only => [ :index ]
  
+ 
  def manager
     if current_user
       unless current_user.role == "manager" 
@@ -11,6 +12,8 @@ class UploadsController < ApplicationController
       end
     end
   end
+  
+ 
   
  
  
