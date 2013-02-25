@@ -16,7 +16,7 @@
     <td><%=upload.username%></td>
     <td><%= upload.attach_file_name %></td>
     <td><%= upload.attach_content_type %></td>
-    <td><%= upload.attach_file_size %>MB</td>
+    <td><%= upload.attach_file_size %>B</td>
     <td><%= upload.attach_updated_at.try( :strftime, "%d/%m/%Y ") %></td>
     <td><%= link_to 'Sil', upload, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn  btn-danger',:style=>"color:#fff;width:30px;" %></td>
     <td><%= link_to 'İndir', {:action => :download, :id => upload.id},:class => 'btn  btn-info',:style=>"color:#fff;width:30px;" %></td>
