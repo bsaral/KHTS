@@ -22,6 +22,11 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="/">Ana Sayfa</a></li>
+              <% if current_user %>
+				<% if current_user.role == "user" %>
+					<li ><a href="/user_show">Tablo</a></li>
+				<% end %>
+			  <% end %>
             </ul>
             <ul class="nav pull-right">
 			  <li class="divider-vertical"></li>
@@ -29,6 +34,7 @@
 				  <% if current_user %>
 					<li><%= link_to current_user.username,"" %> </li>
 					<li><%= link_to "Çıkış",logout_url %></li>
+					 
 				  <% else %>
 					<a class="dropdown-toggle" href="#" data-toggle="dropdown">Giriş Yap <strong class="caret"></strong></a>
 					<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">

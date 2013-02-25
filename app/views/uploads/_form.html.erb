@@ -2,6 +2,17 @@
   <div class = "hero-unit" style="margin-top:50px;margin-left:2.5in;width:3in;background-color:#fff"" >
   <h2 > Dosya Yükle <h2>
 	<%= form_for @upload, :html => { :multipart => true } do |f| %>
+		<% if @upload.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
+
+		  <ul>
+		 <% @upload.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
 
 	  <div class="field">
 		
@@ -11,17 +22,7 @@
 		<%= f.submit  :class => 'btn  btn-success' %>
 	  </div>
 	  
-	  <% if @upload.errors.any? %>
-		<div id="error_explanation">
-		  <h2><%= pluralize(@upload.errors.count, "error") %> prohibited this upload from being saved:</h2>
-
-		  <ul>
-		  <% @upload.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		  <% end %>
-		  </ul>
-		</div>
-	  <% end %>
+	  
 	  
 	<% end %>
   </div>
