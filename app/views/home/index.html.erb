@@ -3,11 +3,19 @@
     <h2 style="margin-left:100px;" > KOORDİNATÖR VE HOCA TAKİP SİSTEMİ </h2><br/>
      <p  style="margin-left:250px;"> Buralara birşeyler yazılabilir.</p>
    </div>
-  
-  
+   
+   <% if current_user %>
+	   <% if current_user.role == "manager" %>
+			<%= button_to "DEVAM ET", "/upload_show", :class => 'btn btn-large btn-primary', \
+				style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
+	   <% else %>
+			<%= button_to "DEVAM ET", "/upload", :class => 'btn btn-large btn-primary', \
+				style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
+	   <% end %>
+   <% else %>
 		<%= button_to "DEVAM ET", "/upload", :class => 'btn btn-large btn-primary', \
-			style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
-    
+				style: "width:220px;margin-top:25px;margin-left:3.5in;" %>
+   <% end %>
 
 </div>
 

@@ -14,9 +14,6 @@ class UploadsController < ApplicationController
   end
   
  
-  
- 
- 
   def index
     @uploads = Upload.all
 
@@ -38,8 +35,6 @@ class UploadsController < ApplicationController
   def user_show
 	@user = User.find_by_id(session[:user_id])
     @uploads = Upload.find(:all,:conditions => {:user_id => @user.id})
-    
-    
   end
 
  

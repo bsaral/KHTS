@@ -5,7 +5,7 @@ include CanCan::Ability
 	user ||= User.new 
 
 	if user.role? :manager
-      #can :manage, User
+      can :manage, Upload
     else
       #
     end
