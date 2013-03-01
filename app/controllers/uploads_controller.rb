@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class UploadsController < ApplicationController
  
  before_filter :require_login
@@ -64,8 +65,9 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
+        format.html { redirect_to ("/user_show"), notice: 'Upload was successfully created.' }
         format.json { render json: @upload, status: :created, location: @upload }
+        flash[:success] = "Dosya başarıyla yüklenmiştir."
         @upload.update_attribute(:user_id, @user.id)
 		@upload.update_attribute(:username, @user.username)
       else

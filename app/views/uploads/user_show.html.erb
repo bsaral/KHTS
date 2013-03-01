@@ -1,6 +1,10 @@
 <div class="hero-unit" style = "background-color:#fff">
 
-
+	<% if flash[:error] %>
+	  <div class="alert alert-success" style= "width:3in;margin-top:-50px;margin-left:4in;">
+		<%= flash[:success] %>
+	  </div>
+	<% end %>
 <table class="table table-striped display">
 	<thead>
 		<tr>

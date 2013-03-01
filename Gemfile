@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'cancan'
 gem "paperclip", "~> 3.0"
 gem "rmagick" , '~> 2.13.2'
+gem 'css3-progress-bar-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
