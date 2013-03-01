@@ -1,8 +1,10 @@
 
 <div class = "container">
-  <div class = "hero-unit" style="margin-top:50px;margin-left:2.5in;width:3in;background-color:#fff"" >
+  <div class = "hero-unit" style="margin-top:0px;margin-left:2in;width:5in;background-color:#fff"" >
   <h2 > Dosya Yükle <h2>
-  
+  <div class="alert alert-information" style = "font-size:18px;">
+		<%= flash[:informaiton] = "Dosya Boyutu En Fazla 8MB Olmalıdır ! " %>
+  </div>
 	<%= form_for @upload, :html => { :multipart => true } do |f| %>
 		<% if @upload.errors.any? %>
 		<div id="error_explanation">
