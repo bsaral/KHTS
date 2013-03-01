@@ -11,7 +11,7 @@ class Upload < ActiveRecord::Base
 			"application/vnd.openxmlformats-officedocument.presentationml.presentation",
 			"application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 			"application/vnd.openxmlformats-officedocument.presentationml.slideshow",
-			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"], :message => 'Dosya türü desteklenmemektedir.'
+			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"], :message => '/ Dosya türü desteklenmemektedir.'
 			
   belongs_to :user
   
