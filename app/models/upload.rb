@@ -1,9 +1,10 @@
 # encoding: UTF-8
 
 class Upload < ActiveRecord::Base
-  attr_accessible :attach,:username,:user_id
+  attr_accessible :attach,:username,:user_id,:content
   has_attached_file :attach
   validates_attachment_presence :attach, :message => '/ Bir Dosya Seçiniz'
+  validates :content, :presence => {:message => '/ Açıklama alanı boş bırakılmaz' }
   validates_attachment_size :attach, :less_than => 8.megabytes , :message => '/ Dosya Boyutu En Fazla 8MB Olmalıdır'
   validates_attachment_content_type :attach, :content_type => ["application/x-gzip","application/pdf","application/vnd.oasis.opendocument.text","text/plain","image/jpeg","image/jpg","image/png","image/gif",
 			"application/zip","application/vnd.ms-excel","application/vnd.openxmlformatsofficedocument.spreadsheetml.sheet","application/msword",

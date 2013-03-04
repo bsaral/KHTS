@@ -1,9 +1,9 @@
 
 <div class = "container">
-  <div class = "hero-unit" style="margin-top:0px;margin-left:2in;width:5in;background-color:#fff"" >
-  <h2 > Dosya Yükle <h2>
+  <div class = "hero-unit" style="margin-top:-20px;margin-left:1.5in;width:5in;background-color:#fff"" >
+  <h2 > Dosya Yükle <h2><br/>
   <div class="alert alert-information" style = "font-size:18px;">
-		<%= flash[:informaiton] = "Dosya Boyutu En Fazla 8MB Olmalıdır ! " %>
+		<%= flash[:informaiton] = "Dosya Boyutu En Fazla 8MB Olmalıdır ! " %><br/>
   </div>
 	<%= form_for @upload, :html => { :multipart => true } do |f| %>
 		<% if @upload.errors.any? %>
@@ -19,7 +19,12 @@
 	  <% end %>
 
 	  <div class="field">
-		<%= f.file_field :attach %>
+		<%= f.file_field :attach %><br/><br/>
+	  </div>
+	  
+	  <div class="field" >
+		<h4> Açıklama </h4>
+		<%= f.text_area :content ,style: "width:5in;height:100px;"%>
 	  </div>
 	  
 	  <div class="actions">

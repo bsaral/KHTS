@@ -1,0 +1,12 @@
+<div class = "container" >
+  <div class = "hero-unit" style="width:auto;margin-top:50px;margin-left:0.5in; " >
+	<h2 > Açıklama </h2><br/>
+		<h4 style="color:#616D7E"><%= @upload.content %></h4>
+	</div>
+	 
+	   <% if current_user.role == "user" %>
+			<%= link_to 'Geri Dön',"/user_show", :class => 'btn btn-large btn-inverse',:style=>"color:#fff;width:100px;position:relative;left:4in" %>
+	  <% else %>
+			<%= link_to 'Geri Dön',"/upload_show", :class => 'btn btn-large btn-inverse',:style=>"color:#fff;width:100px;position:relative;left:4in" %>
+	  <% end %>
+ </div>
