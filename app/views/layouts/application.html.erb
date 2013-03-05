@@ -25,9 +25,9 @@
               <li class="active"><a href="/">Ana Sayfa</a></li>
               <% if current_user %>
 				<% if current_user.role == "user" %>
-					<li ><a href="/user_show">Tablo</a></li>
+					<li ><a href="/user_show">Yüklenenler</a></li>
 				<% else %>
-					<li ><a href="/upload_show">Tablo</a></li>
+					<li ><a href="/upload_show">Yüklenenler</a></li>
 				<% end %>
 			  <% end %>
             </ul>

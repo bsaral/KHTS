@@ -8,9 +8,8 @@
 <table class="table table-striped display">
 	<thead>
 		<tr>
-			<th>Kullanıcı Adı</th>
+			<th>Öğretim Üyesi</th>
 			<th>Dosya Adı</th>
-			<th>Dosya İçeriği</th>
 			<th>Dosya Boyutu</th>
 			<th>Açıklama</th>
 			<th>Yükleme Tarihi</th>
@@ -20,8 +19,7 @@
   <tr>
     <td><%=upload.username%></td>
     <td><%= upload.attach_file_name %></td>
-    <td><%= upload.attach_content_type %></td>
-    <td><%= upload.attach_file_size %>B</td>
+    <td><%= ((upload.attach_file_size).to_f / (1048576)).round(3) %>MB</td>
     <td><%= truncate(upload.content, :length => 50, :omission => '... (devamı var)') %></td>
     <td><%= upload.attach_updated_at.try( :strftime, "%d/%m/%Y ") %></td>
     <td><%= link_to 'Açıklama',upload, :class => 'btn  btn-warning',:style=>"color:#fff;width:55px;" %></td>
