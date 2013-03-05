@@ -1,12 +1,13 @@
 <div class = "container" >
-  <div class = "hero-unit" style="width:auto;margin-top:50px;margin-left:0.5in; " >
+  <div class = "hero-unit" style="width:auto;margin-top:20px;margin-left:1.6in; " >
 	<h2 > Açıklama </h2><br/>
-		<h4 style="color:#616D7E"><%= @upload.content %></h4>
+		<%= form_for @upload, :html => { :multipart => true } do |f| %>
+			<div class="field" >
+				<%= f.text_area :content ,style: "width:5in;height:150px;",:disabled => 'disabled'%>
+			</div>
+		<% end %>
 	</div>
 	 
-	   <% if current_user.role == "user" %>
-			<%= link_to 'Geri Dön',"/user_show", :class => 'btn btn-large btn-inverse',:style=>"color:#fff;width:100px;position:relative;left:4in" %>
-	  <% else %>
-			<%= link_to 'Geri Dön',"/upload_show", :class => 'btn btn-large btn-inverse',:style=>"color:#fff;width:100px;position:relative;left:4in" %>
-	  <% end %>
+	  <%= link_to 'Geri Dön',"/upload_show", :class => 'btn btn-large btn-inverse',:style=>"color:#fff;width:100px;position:relative;left:4in;top:-50px" %>
+	 
  </div>

@@ -16,9 +16,9 @@
     <td><%=upload.username%></td>
     <td><%= upload.attach_file_name %></td>
     <td><%= ((upload.attach_file_size).to_f / (1048576)).round(3) %>MB</td>
-    <td><%= truncate(upload.content, :length => 50, :omission => '... (devamı var)') %></td>
+    <td><%= truncate(upload.content, :length => 30, :omission => '... (devamı var)') %></td>
     <td><%= upload.attach_updated_at.try( :strftime, "%d/%m/%Y ") %></td>
-    <td><%= link_to 'Açıklama',upload, :class => 'btn  btn-warning',:style=>"color:#fff;width:55px;" %></td>
+    <td><%= link_to 'Açıklama',upload, :class => 'btn  btn-warning',:style=>"color:#fff;width:60px;" %></td>
     <td><%= link_to 'Sil', upload, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn  btn-danger',:style=>"color:#fff;width:30px;" %></td>
     <td><%= link_to 'İndir', {:action => :download, :id => upload.id},:class => 'btn  btn-info',:style=>"color:#fff;width:30px;" %></td>
   </tr>
