@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20130312232144) do
     t.datetime "attach_updated_at"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.string   "username"
-    t.integer  "user_id"
+    t.string   "username",        	  :limit => 40
+    t.integer  "user_id",             :limit => 1
     t.text     "content"
     t.string   "part"
     t.string   "lesson"
@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(:version => 20130312232144) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
+    t.string   "username",        :limit => 40
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "role"
+    t.string   "role",            :limit => 40
   end
 
 end
