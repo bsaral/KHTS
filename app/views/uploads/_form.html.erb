@@ -1,6 +1,6 @@
 
 <div class = "container">
-  <div class = "hero-unit" style="margin-top:-20px;margin-left:1.5in;width:5in;background-color:#fff"" >
+  <div class = "hero-unit" style="margin-top:-20px;margin-left:1.3in;width:5in;background-color:#fff"" >
   <h2 > Dosya Yükle <h2><br/>
   <div class="alert alert-information" style = "font-size:18px;">
 		<%= flash[:informaiton] = "Dosya Boyutu En Fazla 8MB Olmalıdır ! " %><br/>
@@ -22,9 +22,50 @@
 		<%= f.file_field :attach %><br/><br/>
 	  </div>
 	  
-	  <div class="field" >
-		<h4> Açıklama </h4>
-		<%= f.text_area :content ,style: "width:5in;height:100px;"%>
+	  <div class="field" id="bolum">
+		<h4> Bölümler(*) </h4>
+			<% @parts = {'Bölüm Seçiniz' => 0, 'Eğitim Yönetimi ve Teftişi' => 1,'Sağlık Kurumları Yönetimi' => 2,'Taşınmaz Geliştirme' => 3,'Evde Bakım Hemşireliği' => 4,'Ebelik Lisans Tamamlama' => 5,'İlahiyat Lisans Tamamlama' => 6} %>
+			<%= f.select :part , options_for_select(@parts.keys),{},\
+			 :onclick => "if( this.options[selectedIndex].text == 'Eğitim Yönetimi ve Teftişi' ) {lesson1()} 
+			 else if( this.options[selectedIndex].text == 'Sağlık Kurumları Yönetimi' ) {lesson2()}
+			 else if (this.options[selectedIndex].text == 'Taşınmaz Geliştirme'){lesson3()} 
+			 else if (this.options[selectedIndex].text == 'Evde Bakım Hemşireliği') {lesson4()}
+			 else if (this.options[selectedIndex].text == 'Ebelik Lisans Tamamlama') {lesson5()}
+			 else if (this.options[selectedIndex].text == 'İlahiyat Lisans Tamamlama') {lesson6()}" %>
+	  </div>
+	  
+	  <div class="field" id="ders" style="float:right;margin-top:-93px" >
+			<script type="text/javascript">
+			
+			  function lesson1() {  
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'eyt', 'eyt'),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_eyt', 'u_eyt'),:include_blank => "Ünite Seçiniz") %>');}
+				 
+			  function lesson2() {  
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'sky', 'sky'),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_sky', 'u_sky'),:include_blank => "Ünite Seçiniz") %>');}
+				 
+			  function lesson3() {  
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'tg', 'tg'),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_tg', 'u_tg'),:include_blank => "Ünite Seçiniz") %>');}
+				 
+			  function lesson4() {  
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'ebh', 'ebh'),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_ebh', 'u_ebh'),:include_blank => "Ünite Seçiniz") %>');}
+				 
+			  function lesson5() {  
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'elt', 'elt'),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_elt', 'u_elt'),:include_blank => "Ünite Seçiniz") %>');}
+				 
+			  function lesson6() {  
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'ilt', 'ilt'),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_ilt', 'u_ilt'),:include_blank => "Ünite Seçiniz") %>');}
+				 
+			</script>
+	  </div>
+	  
+	  <div class="field" id="unite" style="float:left;margin-top:-93px;margin-left:5.3in;" >
+	  
 	  </div>
 	  
 	  <div class="actions">

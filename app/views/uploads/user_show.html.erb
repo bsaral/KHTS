@@ -10,9 +10,11 @@
 		<tr>
 			<th>Öğretim Üyesi</th>
 			<th>Dosya Adı</th>
-			<th>Dosya Boyutu</th>
-			<th>Açıklama</th>
-			<th>Yükleme Tarihi</th>
+			<th>Boyutu</th>
+			<th>Bölüm Adı</th>
+			<th>Ders Adı</th>
+			<th>Ünite Adı</th>
+			<th>Tarih</th>
 		 </tr>
 
 <% @uploads.each do |upload| %>
@@ -20,7 +22,9 @@
     <td><%=upload.username%></td>
     <td><%= upload.attach_file_name %></td>
     <td><%= ((upload.attach_file_size).to_f / (1048576)).round(4) %>MB</td>
-    <td><%= truncate(upload.content, :length => 30, :omission => '... (devamı var)') %></td>
+    <td><%= upload.part %></td>
+    <td><%= upload.lesson %></td>
+    <td><%= upload.unite %></td>
     <td><%= upload.attach_updated_at.try( :strftime, "%d/%m/%Y ") %></td>
     <td><%= link_to 'Sil',upload, :method => :delete, data: { confirm: 'Are you sure?' },:class => 'btn  btn-danger',:style=>"color:#fff;width:30px;" %></td>
     <td><%= link_to 'İndir', {:action => :download, :id => upload.id},:class => 'btn  btn-info',:style=>"color:#fff;width:30px;" %></td>

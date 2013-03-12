@@ -41,7 +41,8 @@ class UploadsController < ApplicationController
  
   def new
     @upload = Upload.new
-   
+    @lessons = Lesson.all
+    @unites = Unite.all 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -61,7 +62,8 @@ class UploadsController < ApplicationController
    
     @upload = Upload.create(params[:upload])
     @user = User.find_by_id(session[:user_id])
-    
+    @lessons = Lesson.all
+    @unites = Unite.all 
 
     respond_to do |format|
       if @upload.save

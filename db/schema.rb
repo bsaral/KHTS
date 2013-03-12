@@ -11,26 +11,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304213621) do
+ActiveRecord::Schema.define(:version => 20130312232144) do
+
+  create_table "lessons", :force => true do |t|
+    t.string   "eyt"
+    t.string   "sky"
+    t.string   "tg"
+    t.string   "ebh"
+    t.string   "elt"
+    t.string   "ilt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "unites", :force => true do |t|
+    t.string   "u_eyt"
+    t.string   "u_sky"
+    t.string   "u_tg"
+    t.string   "u_ebh"
+    t.string   "u_elt"
+    t.string   "u_ilt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "uploads", :force => true do |t|
     t.string   "attach_file_name"
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.string   "username",            :limit => 40
-    t.integer  "user_id",             :limit => 1
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "username"
+    t.integer  "user_id"
     t.text     "content"
+    t.string   "part"
+    t.string   "lesson"
+    t.string   "unite"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",        :limit => 40
+    t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.string   "role",            :limit => 40
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "role"
   end
 
 end
