@@ -4,7 +4,7 @@ KHTS::Application.routes.draw do
   
   resources :sessions
   match "/login" => "sessions#new"
-  match "logout" => "sessions#destroy"
+  match "/logout" => "sessions#destroy"
   
   resources :uploads
   match "/upload" => "uploads#new"

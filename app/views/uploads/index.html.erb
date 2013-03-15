@@ -22,7 +22,6 @@
     <td><%= upload.lesson %></td>
     <td><%= upload.unite %></td>
     <td><%= upload.attach_updated_at.try( :strftime, "%d/%m/%Y ") %></td>
-    <td><%= link_to 'Açıklama',upload, :class => 'btn  btn-warning',:style=>"color:#fff;width:60px;" %></td>
     <td><%= link_to 'Sil', upload, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn  btn-danger',:style=>"color:#fff;width:30px;" %></td>
     <td><%= link_to 'İndir', {:action => :download, :id => upload.id},:class => 'btn  btn-info',:style=>"color:#fff;width:30px;" %></td>
   </tr>
