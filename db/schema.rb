@@ -40,22 +40,21 @@ ActiveRecord::Schema.define(:version => 20130312232144) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.string   "username",            :limit => 40
-    t.integer  "user_id",             :limit => 1
-    t.text     "content"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "username"
+    t.integer  "user_id"
     t.string   "part"
     t.string   "lesson"
     t.string   "unite"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",        :limit => 40
+    t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.string   "role",            :limit => 40
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "role"
   end
 
 end

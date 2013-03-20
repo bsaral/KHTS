@@ -18,6 +18,12 @@ Lesson.create(:eyt => "e2",:sky =>"s2",:tg =>"t2",:ebh =>"eb2",:elt =>"el2",:ilt
 
 Lesson.create(:eyt => "e3",:sky =>"s3",:tg =>"t3",:ebh =>"eb3",:elt =>"el3",:ilt =>"i3")
 
+Lesson.create(:eyt => "Eğitim Yönetiminde Kuram ve Uygulama",:elt =>"Sosyal Antropoloji",:ilt =>"Felsefe Tarihi")
+
+Lesson.create(:eyt => "Eğitim İstatistiği",:ilt =>"İslam Tarihi I")
+
+Lesson.create(:ilt => "Kuran-ı Kerim III")
+
 
 Unite.create(:u_eyt => "ue1",:u_sky =>"us1",:u_tg =>"ut1",:u_ebh =>"ueb1",:u_elt =>"uel1",:u_ilt =>"ui1")
 

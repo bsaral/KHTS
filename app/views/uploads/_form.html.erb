@@ -1,11 +1,26 @@
+<% @eyt = Lesson.where('eyt IS NOT NULL').select(:eyt).map { |d| d.eyt }  %>
+<% @sky = Lesson.where('sky IS NOT NULL').select(:sky).map { |d| d.sky }  %>
+<% @tg  = Lesson.where('tg IS NOT NULL').select(:tg).map { |d| d.tg }  %>
+<% @ebh = Lesson.where('ebh IS NOT NULL').select(:ebh).map { |d| d.ebh }  %>
+<% @elt = Lesson.where('elt IS NOT NULL').select(:elt).map { |d| d.elt }  %>
+<% @ilt = Lesson.where('ilt IS NOT NULL').select(:ilt).map { |d| d.ilt }  %>
+
+<% @u_eyt = Unite.where('u_eyt IS NOT NULL').select(:u_eyt).map { |d| d.u_eyt }  %>
+<% @u_sky = Unite.where('u_sky IS NOT NULL').select(:u_sky).map { |d| d.u_sky }  %>
+<% @u_tg  = Unite.where('u_tg IS NOT NULL').select(:u_tg).map { |d| d.u_tg }  %>
+<% @u_ebh = Unite.where('u_ebh IS NOT NULL').select(:u_ebh).map { |d| d.u_ebh }  %>
+<% @u_elt = Unite.where('u_elt IS NOT NULL').select(:u_elt).map { |d| d.u_elt }  %>
+<% @u_ilt = Unite.where('u_ilt IS NOT NULL').select(:u_ilt).map { |d| d.u_ilt }  %>
 
 <div class = "container">
   <div class = "hero-unit" style="margin-top:-20px;margin-left:1.3in;width:5in;background-color:#fff"" >
   <h2 > Dosya Yükle <h2><br/>
+  
   <div class="alert alert-information" style = "font-size:18px;">
 		<%= flash[:informaiton] = "Dosya Boyutu En Fazla 8MB Olmalıdır ! " %><br/>
   </div>
 	<%= form_for @upload, :html => { :multipart => true } do |f| %>
+
 		<% if @upload.errors.any? %>
 		<div id="error_explanation">
 		  <h2><%= pluralize(@upload.errors.count, "HATA") %> OLUŞTU !</h2>
@@ -38,28 +53,28 @@
 			<script type="text/javascript">
 			
 			  function lesson1() {  
-				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'eyt', 'eyt'),:include_blank => "Ders Seçiniz") %>');
-				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_eyt', 'u_eyt'),:include_blank => "Ünite Seçiniz") %>');}
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson, options_for_select(@eyt),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_for_select(@u_eyt),:include_blank => "Ünite Seçiniz") %>');}
 				 
 			  function lesson2() {  
-				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'sky', 'sky'),:include_blank => "Ders Seçiniz") %>');
-				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_sky', 'u_sky'),:include_blank => "Ünite Seçiniz") %>');}
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_for_select(@sky),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_for_select(@u_sky),:include_blank => "Ünite Seçiniz") %>');}
 				 
 			  function lesson3() {  
-				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'tg', 'tg'),:include_blank => "Ders Seçiniz") %>');
-				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_tg', 'u_tg'),:include_blank => "Ünite Seçiniz") %>');}
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_for_select(@tg),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_for_select(@u_tg),:include_blank => "Ünite Seçiniz") %>');}
 				 
 			  function lesson4() {  
-				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'ebh', 'ebh'),:include_blank => "Ders Seçiniz") %>');
-				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_ebh', 'u_ebh'),:include_blank => "Ünite Seçiniz") %>');}
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_for_select(@ebh),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_for_select(@u_ebh),:include_blank => "Ünite Seçiniz") %>');}
 				 
 			  function lesson5() {  
-				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'elt', 'elt'),:include_blank => "Ders Seçiniz") %>');
-				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_elt', 'u_elt'),:include_blank => "Ünite Seçiniz") %>');}
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_for_select(@elt),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_for_select(@u_elt),:include_blank => "Ünite Seçiniz") %>');}
 				 
 			  function lesson6() {  
-				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_from_collection_for_select(@lessons, 'ilt', 'ilt'),:include_blank => "Ders Seçiniz") %>');
-				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_from_collection_for_select(@unites, 'u_ilt', 'u_ilt'),:include_blank => "Ünite Seçiniz") %>');}
+				 $('#ders').html('<h4> Dersler(*) </h4><%= escape_javascript(f.select :lesson , options_for_select(@ilt),:include_blank => "Ders Seçiniz") %>');
+				 $('#unite').html('<h4> Üniteler(*) </h4><%= escape_javascript(f.select :unite , options_for_select(@u_ilt),:include_blank => "Ünite Seçiniz") %>');}
 				 
 			</script>
 	  </div>
